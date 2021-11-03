@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Suche {
+public class BinarySearch {
 
 	private static int anz = 1000;	// maximale groeﬂe des arrays, maximaler wert der zahlen
 	
