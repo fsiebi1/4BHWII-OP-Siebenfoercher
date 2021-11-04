@@ -14,9 +14,9 @@ public class Exponent {
 		long c = mathe(x, exponent);
 		long t4 = System.currentTimeMillis();
 
-		System.out.printf("Iterativ: %d\tTime: %dms\n", a, t2-t1);
-		System.out.printf("Rekursiv: %d\tTime: %dms\n", b, t3-t2);
-		System.out.printf("Mathematisch: %d\tTime: %dms\n", a, t4-t3);
+		System.out.printf("Iterativ: \t%d\tTime: %dms\n", a, t2-t1);
+		System.out.printf("Rekursiv: \t%d\tTime: %dms\n", b, t3-t2);
+		System.out.printf("Mathematisch: \t%d\tTime: %dms\n", c, t4-t3);
 	}
 	
 	private static long iterativ(long x, long exponent) {
@@ -31,17 +31,19 @@ public class Exponent {
 	}
 	
 	private static long rekursiv(long x, long exponent) {
-		if(exponent == 0)
+		if(exponent <= 0)
 			return 0;
-		
-		if(exponent > 1)
-			return x * rekursiv(x, exponent - 1);
-			
-		return x;
+		return rekursiv(1, x, exponent);
+	}
+	
+	private static long rekursiv(long sum, long x, long exponent) {
+		if(exponent > 0)
+			return rekursiv(sum * x, x, exponent - 1);
+		return sum;
 	}
 	
 	private static long mathe(long x, long exponent) {
-		return (x * (x + 1)) / 2;
+		return (long) Math.pow(x, exponent);
 	}
 
 }

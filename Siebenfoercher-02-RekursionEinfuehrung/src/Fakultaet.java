@@ -27,10 +27,17 @@ public class Fakultaet {
 	}
 	
 	private static long rekursiv(long x) {
-		if(x > 1)
-			return x * rekursiv(x - 1);
-			
-		return x;
+		if(x == 0) 
+			return x;
+		if(x < 0) 
+			return -1;
+		return rekursiv(1, x);
+	}
+	
+	private static long rekursiv(long sum, long x) {
+		if(x > 0)
+			return rekursiv(sum * x, x - 1);
+		return sum;
 	}
 
 }
